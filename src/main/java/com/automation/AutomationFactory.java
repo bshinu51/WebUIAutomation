@@ -25,6 +25,9 @@ public class AutomationFactory {
 
 	public static final String CHROME_BROWSER = "chrome";
 	public static final String FIREFOX_BROWSER = "firefox";
+	public static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
+	public static final String RESOURCE_PATH = "src/main/resources/";
+	public static final String CHROME_PATH = "chromedriver.exe";
 
 	private AutomationFactory() {
 	}
@@ -43,6 +46,8 @@ public class AutomationFactory {
 
 	public static WebDriver getWebDriverInstance(String driver) {
 		if (driver.equalsIgnoreCase(CHROME_BROWSER)) {
+			System.setProperty(CHROME_DRIVER_PROPERTY, RESOURCE_PATH
+					+ CHROME_PATH);
 			return new ChromeDriver();
 
 		} else if (driver.equalsIgnoreCase(FIREFOX_BROWSER)) {

@@ -22,7 +22,7 @@ public class JenkinAdapter {
 	public static void main(String[] args) {
 		ArrayList<String> jenkinTestCases = new ArrayList<String>(
 				Arrays.asList(args));
-		AutomationManager.initTestExecution(jenkinTestCases);
+		AutomationManager.initiateTestExecution(jenkinTestCases);
 		if (AutomationManager.hasFailed()) {
 			System.exit(1);
 		}

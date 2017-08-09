@@ -2,8 +2,7 @@ package com.automation.framework.filereader;
 
 import java.io.InputStream;
 
-import com.automation.framework.inputdata.InputData;
-import com.automation.framework.inputdata.Respository;
+import com.automation.framework.inputdata.Repository;
 import com.automation.framework.inputdata.TestCase;
 
 /**
@@ -12,19 +11,14 @@ import com.automation.framework.inputdata.TestCase;
  */
 public class CSVFileReader extends AbstractFileReader {
 
-	public InputData loadFile(String xlsFileName) {
+	@Override
+	Repository loadRepository() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	Respository loadRepository(InputStream inputStream) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	TestCase loadTestCase(InputStream inputStream) {
+	TestCase loadTestCase() {
 		// TODO Auto-generated method stub
 		return null;
 	}

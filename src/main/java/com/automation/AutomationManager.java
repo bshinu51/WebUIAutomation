@@ -18,15 +18,15 @@ public class AutomationManager {
 
 	private static final String TEST_FILE_NAME = "Automation_Test_Script.xls";
 
-	public static void initTestExecution(ArrayList<String> jenkinTestCases) {
+	public static void initiateTestExecution(ArrayList<String> jenkinTestCases) {
 		if (jenkinTestCases != null && jenkinTestCases.size() > 0) {
 			setUrl(jenkinTestCases.get(0));
 			LOG.info("The url extracted is: " + getUrl());
 		}
 		FileReaderInterface reader = AutomationFactory
 				.getFileReaderInstance(TEST_FILE_NAME);
-		InputData entireInputData = reader.loadFile(TEST_FILE_NAME);
-		executeConfigs(entireInputData, jenkinTestCases);
+		InputData inputData = reader.loadFile(TEST_FILE_NAME);
+		executeConfigs(inputData, jenkinTestCases);
 
 	}
 
@@ -37,7 +37,7 @@ public class AutomationManager {
 
 	private static void setUrl(String string) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	private static void executeConfigs(InputData entireInputData,
