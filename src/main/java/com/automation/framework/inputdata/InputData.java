@@ -6,14 +6,22 @@ package com.automation.framework.inputdata;
  */
 public class InputData {
 
-	public void setRepository(Respository respository) {
-		// TODO Auto-generated method stub
+	private Repository repository;
+	private TestCase testCase;
 
+	public void setRepository(Repository repository) {
+		this.repository = repository;
 	}
 
-	public void setTestCase(TestCase loadTestCase) {
-		// TODO Auto-generated method stub
-
+	public void setTestCase(TestCase testCase) {
+		this.testCase = testCase;
 	}
 
+	public Repository getRepository() {
+		return repository;
+	}
+
+	public TestCase getTestCase() {
+		return testCase;
+	}
 }

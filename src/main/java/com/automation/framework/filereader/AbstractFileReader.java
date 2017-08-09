@@ -7,7 +7,7 @@ import java.io.InputStream;
 
 import com.automation.framework.FileReaderInterface;
 import com.automation.framework.inputdata.InputData;
-import com.automation.framework.inputdata.Respository;
+import com.automation.framework.inputdata.Repository;
 import com.automation.framework.inputdata.TestCase;
 
 /**
@@ -16,15 +16,15 @@ import com.automation.framework.inputdata.TestCase;
  */
 public abstract class AbstractFileReader implements FileReaderInterface {
 
-	private InputData inputData = null;
-	private InputStream inputStream = null;
+	protected InputData inputData = null;
+	protected InputStream inputStream = null;
 
 	public InputData loadFile(String fileName) {
 		try {
 			inputData = new InputData();
 			inputStream = new FileInputStream(fileName);
-			inputData.setRepository(loadRepository(inputStream));
-			inputData.setTestCase(loadTestCase(inputStream));
+			inputData.setRepository(loadRepository());
+			inputData.setTestCase(loadTestCase());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} finally {
@@ -36,11 +36,11 @@ public abstract class AbstractFileReader implements FileReaderInterface {
 				}
 			}
 		}
-		return null;
+		return inputData;
 	}
 
-	abstract Respository loadRepository(InputStream inputStream);
+	abstract Repository loadRepository();
 
-	abstract TestCase loadTestCase(InputStream inputStream);
+	abstract TestCase loadTestCase();
 
 }
