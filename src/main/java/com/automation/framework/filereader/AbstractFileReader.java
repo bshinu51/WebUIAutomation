@@ -11,7 +11,7 @@ import com.automation.framework.inputdata.Respository;
 import com.automation.framework.inputdata.TestCase;
 
 /**
- * @author Shrinivas Bhat <sbhat10@asu.edu>
+ * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>
  * @version 1.0.0
  */
 public abstract class AbstractFileReader implements FileReaderInterface {
