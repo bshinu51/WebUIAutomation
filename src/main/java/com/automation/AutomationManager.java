@@ -3,9 +3,11 @@ package com.automation;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 
 import com.automation.framework.FileReaderInterface;
 import com.automation.framework.inputdata.InputData;
+import com.automation.framework.webdriver.WebDriverEngine;
 
 /**
  * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>
@@ -26,8 +28,9 @@ public class AutomationManager {
 		FileReaderInterface reader = AutomationFactory
 				.getFileReaderInstance(TEST_FILE_NAME);
 		InputData inputData = reader.loadFile(TEST_FILE_NAME);
-		executeConfigs(inputData, jenkinTestCases);
-
+		WebDriver mDriver = AutomationFactory.getWebDriverInstance("chrome");
+		WebDriverEngine webDriverEngine = new WebDriverEngine(mDriver);
+		executeConfigs(webDriverEngine, inputData, jenkinTestCases);
 	}
 
 	private static String getUrl() {
@@ -40,9 +43,9 @@ public class AutomationManager {
 
 	}
 
-	private static void executeConfigs(InputData entireInputData,
-			ArrayList<String> jenkinTestCases) {
-		// TODO Auto-generated method stub
+	private static void executeConfigs(WebDriverEngine webDriverEngine,
+			InputData entireInputData, ArrayList<String> jenkinTestCases) {
+		webDriverEngine.startExecution(entireInputData, jenkinTestCases);
 
 	}
 
