@@ -8,7 +8,7 @@ import java.util.LinkedList;
  * @version 1.0.0
  */
 public class TestCase {
-	HashMap<String, LinkedList<TestStep>> testCaseMap;
+	private HashMap<String, LinkedList<TestStep>> testCaseMap;
 
 	public TestCase() {
 		testCaseMap = new HashMap<String, LinkedList<TestStep>>();
@@ -22,5 +22,9 @@ public class TestCase {
 			LinkedList<TestStep> value = new LinkedList<TestStep>();
 			testCaseMap.put(key, value);
 		}
+	}
+
+	public HashMap<String, LinkedList<TestStep>> getTestCaseMap() {
+		return testCaseMap;
 	}
 }

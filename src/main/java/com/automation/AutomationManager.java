@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.automation.framework.FileReaderInterface;
 import com.automation.framework.inputdata.InputData;
+import com.automation.framework.outputdata.CompleteResult;
 import com.automation.framework.webdriver.WebDriverEngine;
 
 /**
@@ -19,6 +20,7 @@ public class AutomationManager {
 	private static final Logger LOG = Logger.getLogger(FILE_NAME);
 
 	private static final String TEST_FILE_NAME = "Automation_Test_Script.xls";
+	private static boolean failed;
 
 	public static void initiateTestExecution(ArrayList<String> jenkinTestCases) {
 		if (jenkinTestCases != null && jenkinTestCases.size() > 0) {
@@ -45,13 +47,13 @@ public class AutomationManager {
 
 	private static void executeConfigs(WebDriverEngine webDriverEngine,
 			InputData entireInputData, ArrayList<String> jenkinTestCases) {
-		webDriverEngine.startExecution(entireInputData, jenkinTestCases);
+		CompleteResult result = webDriverEngine.startExecution(entireInputData,
+				jenkinTestCases);
 
 	}
 
 	public static boolean hasFailed() {
-		// TODO Auto-generated method stub
-		return false;
+		return failed;
 	}
 
 }
