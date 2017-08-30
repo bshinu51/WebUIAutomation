@@ -1,0 +1,135 @@
+<html>
+   <head>
+      <title>Test Execution Report</title>
+      <link rel='stylesheet' href='./resources/css/bootstrap.min.css'>
+      <script src='./resources/js/jquery.min.js'></script>
+      <script src='./resources/js/bootstrap.min.js'></script>
+      <script src='./resources/js/report.min.js'></script>
+   </head>
+   <body>
+      <div class='container'>
+      <div class='page-header'>
+         <h1>@filename <small>Test execution report generated on @date at @time</small></h1>
+      </div>
+      <ul class='nav nav-tabs nav-justified'>
+         <li class='active'><a href='#summary' data-toggle='tab'>Summary</a></li>
+         <li><a href='#modules' data-toggle='tab'>Modules</a></li>
+         <li><a href='#details' data-toggle='tab'>Details</a></li>
+      </ul>
+      <br>
+      <div class='tab-content'>
+      <!-- Summary Tab -->
+      <div class='tab-pane active' id='summary'>
+         <table class='table table-bordered table-hover'>
+            <tbody>
+               <tr>
+                  <td class='info'><strong>Filename</strong></td>
+                  <td>@filename</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>URL</strong></td>
+                  <td>@url</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>Driver Type</strong></td>
+                  <td>@driverType</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>Start Time</strong></td>
+                  <td>@startTime</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>End Time</strong></td>
+                  <td>@endTime</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>Total Duration(In Minutes)</strong></td>
+                  <td>@totalTimeInMinutes</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>Modules</strong></td>
+                  <td>@numberOfModules</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>Tests Executed</strong></td>
+                  <td>@testsExecuted</td>
+               </tr>
+               <tr>
+                  <td class='info'><strong>Tests Steps Executed</strong></td>
+                  <td>@testStepExecuted</td>
+               </tr>
+               <tr>
+                  <td class='success'><strong>Passed</strong></td>
+                  <td>@passedCases</td>
+               </tr>
+               <tr>
+                  <td class='danger'><strong>Failed</strong></td>
+                  <td>@failedCases</td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <!-- Module Tab -->
+      <div class='tab-pane' id='modules'>
+         <table class='table table-bordered table-hover'>
+            <thead>
+               <tr class='info'>
+                  <th>Module Name</th>
+                  <th>Number of Test Cases</th>
+                  <th>Passed Test Cases</th>
+                  <th>Failed Test Cases</th>
+                  <th>Skipped Test Cases</th>
+               </tr>
+            </thead>
+            <tbody>
+               @forAll_module_tab_table
+            </tbody>
+         </table>
+      </div>
+      <!-- Details Tab -->
+      <div class='tab-pane' id='details'>
+      <div class='panel panel-default'>
+      <div class='panel-heading'><strong>Details of Test Execution</strong></div>
+      <div class='panel-body'>
+      <ul class='nav nav-tabs nav-justified'>
+         @forAll_module_template
+      </ul>
+      <br>
+	  <div class="tab-content">
+	  <div class="tab-pane active" id=>
+	  <div class="panel-group" id="EDITOR_test_cases">
+	  @forAll_test_case
+	  </div>
+	  </div>
+	  </div>
+	  </div>
+         <div class='modal fade' id='error-modal' tabindex='-1' role='dialog' aria-labelledby='error-modal-label' aria-hidden='true' style='display: none;'>
+            <div class='modal-dialog'>
+               <div class='modal-content'>
+                  <div class='modal-header'>
+                     <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>X</button>
+                     <h4 class='modal-title text-center' id='myModalLabel'><strong>Error Screen Shot</strong></h4>
+                  </div>
+                  <div class='modal-body'>
+                     <div class='text-center'>
+                        <h4 id='fail-error-msg'></h4>
+                        <img id='modal-image' src='' class='img-responsive'>
+                     </div>
+                  </div>
+                  <div class='modal-footer'>
+                     <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div id='footer'>
+            <div class='text-center'>
+               <hr>
+               <span>Generated using <strong>SAF - v0.0.1</strong></span>
+               <span>&copy; 2014 VB</span>
+            </div>
+         </div>
+      </div>
+	  </div>
+   </body>
+</html>
