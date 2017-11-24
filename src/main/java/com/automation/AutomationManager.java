@@ -23,7 +23,7 @@ public class AutomationManager {
 
 	public static void initiateTestExecution(ArrayList<String> jenkinArgs) {
 		if (jenkinArgs != null && jenkinArgs.size() > 0) {
-			TEST_FILE_NAME = jenkinArgs.get(0);
+			TEST_FILE_NAME = jenkinArgs.get(1);
 		}
 		FileReaderInterface reader = AutomationFactory.getFileReaderInstance(TEST_FILE_NAME);
 		InputData inputData = reader.loadFile(TEST_FILE_NAME);
