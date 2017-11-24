@@ -31,4 +31,4 @@
 
 ## Output example
 ### Screen Records
-![ScreenShot](https://github.com/bshinu51/WebUIAutomation/tree/master/extras/WebUIAutomation.gif)
+![ScreenShot](/extras/WebUIAutomation.gif?raw=true)
