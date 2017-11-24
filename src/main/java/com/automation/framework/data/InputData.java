@@ -1,4 +1,4 @@
-package com.automation.framework.inputdata;
+package com.automation.framework.data;
 
 /**
  * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>

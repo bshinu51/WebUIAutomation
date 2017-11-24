@@ -1,9 +1,8 @@
 package com.automation.framework.filereader;
 
-import java.io.InputStream;
-
-import com.automation.framework.inputdata.Repository;
-import com.automation.framework.inputdata.TestCase;
+import com.automation.framework.data.Repository;
+import com.automation.framework.data.TestCase;
+import com.automation.framework.data.TestSuite;
 
 /**
  * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>
@@ -19,6 +18,12 @@ public class CSVFileReader extends AbstractFileReader {
 
 	@Override
 	TestCase loadTestCase() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	TestSuite loadTestSuite() {
 		// TODO Auto-generated method stub
 		return null;
 	}

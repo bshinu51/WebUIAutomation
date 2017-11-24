@@ -6,9 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import com.automation.framework.FileReaderInterface;
-import com.automation.framework.inputdata.InputData;
-import com.automation.framework.inputdata.Repository;
-import com.automation.framework.inputdata.TestCase;
+import com.automation.framework.data.InputData;
+import com.automation.framework.data.Repository;
+import com.automation.framework.data.TestCase;
+import com.automation.framework.data.TestSuite;
 
 /**
  * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>
@@ -42,5 +43,7 @@ public abstract class AbstractFileReader implements FileReaderInterface {
 	abstract Repository loadRepository();
 
 	abstract TestCase loadTestCase();
+	
+	abstract TestSuite loadTestSuite();
 
 }

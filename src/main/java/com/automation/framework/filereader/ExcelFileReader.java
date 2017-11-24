@@ -10,9 +10,10 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Row;
 
-import com.automation.framework.inputdata.Repository;
-import com.automation.framework.inputdata.TestCase;
-import com.automation.framework.inputdata.TestStep;
+import com.automation.framework.data.Repository;
+import com.automation.framework.data.TestCase;
+import com.automation.framework.data.TestStep;
+import com.automation.framework.data.TestSuite;
 
 /**
  * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>
@@ -26,6 +27,7 @@ public class ExcelFileReader extends AbstractFileReader {
 	private static HSSFWorkbook workBook;
 	private static final String XLS_REPOSITORY_SHEET = "Repository";
 	private static final String XLS_TEST_CASE_SHEET = "TestCase";
+	private static final String XLS_TEST_SUITE_SHEET = "TestSuite";
 
 	@Override
 	Repository loadRepository() {
@@ -38,9 +40,9 @@ public class ExcelFileReader extends AbstractFileReader {
 			rows.next();
 		while (rows.hasNext()) {
 			Row r = rows.next();
-			repository.updateRepository(r.getCell(0).toString(), r.getCell(1)
-					.toString(), r.getCell(2).toString());
+			repository.updateRepository(r.getCell(0).toString(), r.getCell(1).toString(), r.getCell(2).toString());
 		}
+		LOG.info("The repository is: " + repository);
 		return repository;
 	}
 
@@ -55,12 +57,28 @@ public class ExcelFileReader extends AbstractFileReader {
 			rows.next();
 		while (rows.hasNext()) {
 			Row r = rows.next();
-			TestStep step = new TestStep(r.getCell(1).toString(), r.getCell(2)
-					.toString(), r.getCell(3).toString(),
+			TestStep step = new TestStep(r.getCell(1).toString(), r.getCell(2).toString(), r.getCell(3).toString(),
 					r.getCell(4) == null ? null : r.getCell(4).toString());
 			testCase.addTestStep(r.getCell(0).toString(), step);
 		}
 		return testCase;
+	}
+
+	@Override
+	TestSuite loadTestSuite() {
+		if (workBook == null)
+			workBook = getWorkBook(inputStream);
+		HSSFSheet mSheetInstance = workBook.getSheet(XLS_TEST_SUITE_SHEET);
+		Iterator<Row> rows = mSheetInstance.rowIterator();
+		TestSuite testSuite = new TestSuite();
+		if (rows.hasNext())
+			rows.next();
+		while (rows.hasNext()) {
+			Row r = rows.next();
+			String step = r.getCell(1).toString();
+			testSuite.addTestCases(r.getCell(0).toString(), step);
+		}
+		return testSuite;
 	}
 
 	private HSSFWorkbook getWorkBook(InputStream inputStream) {
