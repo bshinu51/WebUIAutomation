@@ -1,4 +1,4 @@
-package com.automation.framework.inputdata;
+package com.automation.framework.data;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

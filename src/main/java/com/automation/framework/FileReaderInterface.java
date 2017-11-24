@@ -1,6 +1,6 @@
 package com.automation.framework;
 
-import com.automation.framework.inputdata.InputData;
+import com.automation.framework.data.InputData;
 
 /**
  * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>

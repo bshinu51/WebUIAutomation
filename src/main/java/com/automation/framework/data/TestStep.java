@@ -1,13 +1,17 @@
-package com.automation.framework.inputdata;
+package com.automation.framework.data;
 
+/**
+ * @author Shrinivas Bhat <sbhat10@asu.edu> <bshinu51@gmail.com>
+ * @version 1.0.0
+ */
 public class TestStep {
 	private String name;
 	private String elementName;
 	private String action;
 	private String inputParameter;
+	private Result result;
 
-	public TestStep(String name, String elementName, String action,
-			String inputParameter) {
+	public TestStep(String name, String elementName, String action, String inputParameter) {
 		this.name = name;
 		this.elementName = elementName;
 		this.action = action;
@@ -46,8 +50,17 @@ public class TestStep {
 		this.inputParameter = inputParameter;
 	}
 
+	public Result getResult() {
+		return result;
+	}
+
+	public void setResult(Result result) {
+		this.result = result;
+	}
+
 	@Override
 	public String toString() {
-		return name + " " + elementName + " " + action + " " + inputParameter;
+		return "Test Step[ name:" + name + ", elementName:" + elementName + ", action:" + action
+				+ ", inputParameter:" + inputParameter + ", result:" + result + "]";
 	}
 }

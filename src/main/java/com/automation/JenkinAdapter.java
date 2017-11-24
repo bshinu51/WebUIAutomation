@@ -20,9 +20,9 @@ import java.util.Arrays;
 public class JenkinAdapter {
 
 	public static void main(String[] args) {
-		ArrayList<String> jenkinTestCases = new ArrayList<String>(
+		ArrayList<String> jenkinArgs = new ArrayList<String>(
 				Arrays.asList(args));
-		AutomationManager.initiateTestExecution(jenkinTestCases);
+		AutomationManager.initiateTestExecution(jenkinArgs);
 		if (AutomationManager.hasFailed()) {
 			System.exit(1);
 		}
