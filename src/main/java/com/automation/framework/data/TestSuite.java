@@ -1,6 +1,6 @@
 package com.automation.framework.data;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
@@ -8,7 +8,11 @@ import java.util.LinkedList;
  * @version 1.0.0
  */
 public class TestSuite {
-	private HashMap<String, LinkedList<String>> testSuiteMap;
+	private LinkedHashMap<String, LinkedList<String>> testSuiteMap;
+
+	public TestSuite() {
+		testSuiteMap = new LinkedHashMap<>();
+	}
 
 	public void addTestCases(String key, String stepName) {
 		if (testSuiteMap.containsKey(key)) {
@@ -16,7 +20,16 @@ public class TestSuite {
 			testCase.add(stepName);
 		} else {
 			LinkedList<String> value = new LinkedList<String>();
+			value.add(stepName);
 			testSuiteMap.put(key, value);
 		}
+	}
+
+	public LinkedHashMap<String, LinkedList<String>> getTestSuiteMap() {
+		return testSuiteMap;
+	}
+
+	public void setTestSuiteMap(LinkedHashMap<String, LinkedList<String>> testSuiteMap) {
+		this.testSuiteMap = testSuiteMap;
 	}
 }

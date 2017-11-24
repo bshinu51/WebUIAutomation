@@ -19,12 +19,10 @@ call %MAVEN_PATH%\mvn install
 IF %ERRORLEVEL% NEQ 0 (set ERROR_CODE=2
 GOTO EXIT_WITH_ERROR)
 
-CD ..
 ECHO Exiting WebUIAutomation Project build with SUCCESS.
 EXIT /B 0
 
 :EXIT_WITH_ERROR
-CD ..
 ECHO Exiting WebUIAutomation Project build with FAILURE.
 EXIT /B 0
 

@@ -45,15 +45,15 @@ public class ActionHandler {
 		mDriver = driver;
 	}
 
-	public static Result parseAndAct(String testName, TestStep testStep, ArrayList<String> locators)
+	public static Result parseAndAct(String testName, TestStep testStep, String locType, String locValue)
 			throws InvalidResultExeception {
 		String action = testStep.getAction().toLowerCase();
 		WebElement element = null;
 		Result result = new Result();
 		result.startTime = Utils.now(TestConstants.RESULT_TIME_FORMAT);
-		if (locators.size() > 0) {
+		if (locType != null && locValue != null) {
 			try {
-				element = getElement(locators.get(0), locators.get(1));
+				element = getElement(locType, locValue);
 			} catch (InvalidResultExeception e) {
 				result.hasPassed = false;
 				result.screenShotPath = captureScreenShot(element, testName, testStep);
@@ -73,7 +73,7 @@ public class ActionHandler {
 			case TestConstants.ACTION_WINDOW_SWITCH_TO:
 			case TestConstants.ACTION_WINDOW_OPEN_GET:
 			case TestConstants.ACTION_WINDOW_OPEN:
-				handleWindowAction(testStep, locators, action);
+				handleWindowAction(testStep, action);
 				break;
 			case TestConstants.ACTION_CLICK:
 				if (element.isDisplayed()) {
@@ -257,7 +257,7 @@ public class ActionHandler {
 		return null;
 	}
 
-	private static void handleWindowAction(TestStep testStep, ArrayList<String> locators, String action) {
+	private static void handleWindowAction(TestStep testStep, String action) {
 		if (action.equals(TestConstants.ACTION_WINDOW_SWITCH_TO)) {
 			String windowName = windowHandles.get(Utils.getIntFromXLSValue(testStep.getInputParameter()));
 			mDriver.switchTo().window(windowName);
@@ -266,7 +266,7 @@ public class ActionHandler {
 		} else if (action.equals(TestConstants.ACTION_WINDOW_OPEN_GET)
 				|| action.equals(TestConstants.ACTION_WINDOW_OPEN)) {
 			if (mDriver instanceof JavascriptExecutor) {
-				String JS = "window.open('" + testStep.getInputParameter() + "', '_blank', 'width=300,height=200');";
+				String JS = "window.open('" + testStep.getInputParameter() + "', '_blank');";
 				((JavascriptExecutor) mDriver).executeScript(JS);
 			}
 

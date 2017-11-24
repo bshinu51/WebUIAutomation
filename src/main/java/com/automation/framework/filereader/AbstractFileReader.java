@@ -25,6 +25,7 @@ public abstract class AbstractFileReader implements FileReaderInterface {
 			inputData = new InputData();
 			inputStream = new FileInputStream(fileName);
 			inputData.setRepository(loadRepository());
+			inputData.setTestSuite(loadTestSuite());
 			inputData.setTestCase(loadTestCase());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -43,7 +44,7 @@ public abstract class AbstractFileReader implements FileReaderInterface {
 	abstract Repository loadRepository();
 
 	abstract TestCase loadTestCase();
-	
+
 	abstract TestSuite loadTestSuite();
 
 }

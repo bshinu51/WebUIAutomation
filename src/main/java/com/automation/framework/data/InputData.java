@@ -8,6 +8,7 @@ public class InputData {
 
 	private Repository repository;
 	private TestCase testCase;
+	private TestSuite testSuite;
 
 	public void setRepository(Repository repository) {
 		this.repository = repository;
@@ -23,5 +24,13 @@ public class InputData {
 
 	public TestCase getTestCase() {
 		return testCase;
+	}
+
+	public TestSuite getTestSuite() {
+		return testSuite;
+	}
+
+	public void setTestSuite(TestSuite testSuite) {
+		this.testSuite = testSuite;
 	}
 }

@@ -20,6 +20,7 @@ public class TestCase {
 			teststep.add(step);
 		} else {
 			LinkedList<TestStep> value = new LinkedList<TestStep>();
+			value.add(step);
 			testCaseMap.put(key, value);
 		}
 	}
