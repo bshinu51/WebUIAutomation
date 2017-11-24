@@ -57,9 +57,13 @@ public class ExcelFileReader extends AbstractFileReader {
 			rows.next();
 		while (rows.hasNext()) {
 			Row r = rows.next();
-			TestStep step = new TestStep(r.getCell(1).toString(), r.getCell(2).toString(), r.getCell(3).toString(),
-					r.getCell(4) == null ? null : r.getCell(4).toString());
-			testCase.addTestStep(r.getCell(0).toString(), step);
+			if (r.getCell(0) != null) {
+				TestStep step = new TestStep(r.getCell(1) == null ? null : r.getCell(1).toString(),
+						r.getCell(2) == null ? null : r.getCell(2).toString(),
+						r.getCell(3) == null ? null : r.getCell(3).toString(),
+						r.getCell(4) == null ? null : r.getCell(4).toString());
+				testCase.addTestStep(r.getCell(0).toString(), step);
+			}
 		}
 		return testCase;
 	}

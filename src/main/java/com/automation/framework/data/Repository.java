@@ -14,21 +14,26 @@ public class Repository {
 		repoMap = new LinkedHashMap<String, ArrayList<String>>();
 	}
 
-	public void updateRepository(String name, String locatorType,
-			String locatorValue) {
+	public void updateRepository(String name, String locatorType, String locatorValue) {
 		ArrayList<String> value = new ArrayList<String>();
 		value.add(locatorType);
 		value.add(locatorValue);
 		repoMap.put(name, value);
 	}
 
-	public String getLocatorType(String name) {
+	public String getLocatorTypeByEleName(String name) {
 		ArrayList<String> value = repoMap.get(name);
+		if (value == null) {
+			return null;
+		}
 		return value.get(0);
 	}
 
-	public String getLocatorValue(String name) {
+	public String getLocatorValueByEleName(String name) {
 		ArrayList<String> value = repoMap.get(name);
+		if (value == null) {
+			return null;
+		}
 		return value.get(1);
 	}
 }

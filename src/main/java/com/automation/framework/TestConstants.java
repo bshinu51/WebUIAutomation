@@ -8,16 +8,6 @@ public class TestConstants {
 	/**
 	 * The fields represent reader package constants
 	 */
-	// XLS Constants
-	public static final String XLS_FILE_TYPE = "xls";
-	public static final String XLS_FILE_NAME = "Automation_Test_Script.xls";
-	public static final String XLS_CONFIG_SHEET = "config";
-	public static final String XLS_EXE_MGR_SHEET = "execution_manager";
-	public static final String XLS_OBJECT_REPO_SHEET = "object_repository";
-	public static final String XLS_EDITOR_SHEET = "Editor";
-
-	// CSV constants
-	public static final String CSV_FILE_TYPE = "csv";
 
 	// Driver constants
 	public static final String CHROME_BROWSER = "chrome";
@@ -27,12 +17,6 @@ public class TestConstants {
 	public static final String SCRIPT_PATH = "script/";
 	public static final String GRID_PATH = "grid_startup_windows.bat";
 	public static final String CHROME_PATH = "chromedriver.exe";
-
-	// Test
-	public static final String FACT_URL = "http://localhost:3000";
-
-	// Pre Execution testcases
-	public static final String PRE_EXECUTION = "TC_Login_pre";
 
 	// Actions
 	public static final String RESULT_TIME_FORMAT = "dd/MM/yyyy HH:mm:ss:S";

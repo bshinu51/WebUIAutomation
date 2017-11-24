@@ -15,4 +15,9 @@ public class InvalidResultExeception extends Exception {
 	public InvalidResultExeception(Result result) {
 		this.result = result;
 	}
+
+	public Result getResult() {
+		return result;
+	}
+
 }
