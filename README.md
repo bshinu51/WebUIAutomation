@@ -17,13 +17,14 @@
   5) Once the project is built successfully
   6) Right click on 'JenkinAdapter.java' and then click on 'Run as' -> 'Java Application'. 
 	
-	## or
+### 	OR
 	
   1) Go to WebUIAutomation/buildscript
   		- > cd buildscript
   2) Edit 'build.properties' file.
-		a) Change MAVEN_PATH="To_Your_Maven_Directory"
-		b) Change PROJECTROOT="To_Your_Project_Path(WebUIAutomation)"
+  
+                a) Change MAVEN_PATH="To_Your_Maven_Directory"
+                b) Change PROJECTROOT="To_Your_Project_Path(WebUIAutomation)"
   3) Run 'BuildScript.bat' file.
 		- > BuildScript.Bat
   4) Run 'JenkinAdapter' using command prompt.(The first argument is the URL that you want to test and second argument is the XLS file(Located in 'WebUIAutomation' foleder) that you want include)
