@@ -27,7 +27,7 @@
                 b) Change PROJECTROOT="To_Your_Project_Path(WebUIAutomation)"
   3) Run 'BuildScript.bat' file.
 		- > BuildScript.Bat
-  4) Run 'JenkinAdapter' using command prompt.(The first argument is the URL that you want to test and second argument is the XLS file(Located in 'WebUIAutomation' foleder) that you want include)
+  4) Run 'JenkinAdapter' using command prompt.(The first argument is the URL that you want to test and second argument is the XLS file(Located in 'WebUIAutomation' folder) that you want include)
 		- > java -cp "target\WebUIAutomation-1.0.0.jar;target\classes\*;target\dependency\*" com.automation.JenkinAdapter "https://www.amazon.com" "Automation_Test_Script.xls"
 
 ## Output example
